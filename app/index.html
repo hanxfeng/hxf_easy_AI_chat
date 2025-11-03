@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PA4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>PA4</h2>
+        <span id="settings-icon" style="cursor:pointer;">设置</span>
+    </header>
+
+    <div class="chat-container" id="chat-container"></div>
+
+    <div class="input-container">
+        <input type="text" id="message-input" placeholder="输入消息...">
+        <button id="send-btn">发送</button>
+    </div>
+
+    <div id="settings-modal">
+        <div class="settings-box">
+            <h3>设置</h3>
+            <input type="text" id="server-ip" placeholder="服务器地址 (如 http://127.0.0.1:8080)">
+            <input type="text" id="server-token" placeholder="授权 Token">
+            <button id="save-settings">保存</button>
+</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
