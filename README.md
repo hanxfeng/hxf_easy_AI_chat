@@ -9,18 +9,22 @@
 ## ollama下载
 首先在官网下载ollama安装程序，ollama官网：https://www.ollama.com   
 Ollama会默认下载到c盘，因此需要手动安装至指定文件夹，当然，你c盘够大可以跳过这一步，ollama本体大概有4.5g，记得改模型下载地址就行。  
-目前最新版带有ui界面的ollama可以直接设置模型下载位置，启动ollama后在右下角任务栏中右键点击ollama图标，点击Settings...  
-<img width="997" height="783" alt="image" src="https://github.com/user-attachments/assets/dd093f06-ef74-4aeb-9113-66cf064b1eaa" />
 
-红色矩形标出的就是模型文件下载位置，点击Browse即可更改。  
 在ollama的安装程序OllamaSteup.exe所在文件夹右键，然后点击在终端中打开，输入ollamasetup.exe /DIR=文件夹路径，文件夹路径是指你要把ollama安装到的位置，大概格式是D:\文件夹1\文件夹2 这样。  
 <img width="865" height="437" alt="image" src="https://github.com/user-attachments/assets/785ebd5f-61a3-430e-a5c9-839a520082d3" />  
 
 可以点击图片中标注的位置复制文件夹路径。  
 然后双击OllamaSetup.exe启动安装程序安装即可。  
-在正式安装模型前，需要更改模型下载位置，默认是下载到c盘，会占用大量c盘内存。  
-按住win键（win是fn和alt中间的键）然后在按r键，在弹出的框中输入cmd然后按回车，输入setx OLLAMA_MODELS 模型安装位置，模型安装位置大概格式是D:\文件夹1\文件夹2 这样。  
-在ollama官网中选择模型进行下载。  
+
+在正式安装模型前，需要更改模型下载位置，默认是下载到c盘，会占用大量c盘内存。 
+目前最新版带有ui界面的ollama可以直接设置模型下载位置，启动ollama后在右下角任务栏中右键点击ollama图标，点击Settings...  
+<img width="997" height="783" alt="image" src="https://github.com/user-attachments/assets/dd093f06-ef74-4aeb-9113-66cf064b1eaa" />
+
+红色矩形标出的就是模型文件下载位置，点击Browse即可更改。 
+
+如果是旧版没有ui界面的ollama，按住win键（win是fn和alt中间的键）然后在按r键，在弹出的框中输入cmd然后按回车，输入setx OLLAMA_MODELS 模型安装位置，模型安装位置大概格式是D:\文件夹1\文件夹2 这样。 
+
+## 在ollama官网中选择模型进行下载。  
 <img width="865" height="403" alt="image" src="https://github.com/user-attachments/assets/12b93ef4-f166-4557-8ac6-8b0515c54507" />  
 
 模型参数可从标注位置看出，根据自己电脑显存选择即可,具体可以参考下面的表格，当然，仅供参考，具体模型参数还是要根据模型推理速度决定，速度太慢真的很折磨。  
