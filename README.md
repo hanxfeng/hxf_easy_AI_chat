@@ -9,6 +9,10 @@
 ## ollama下载
 首先在官网下载ollama安装程序，ollama官网：https://www.ollama.com   
 Ollama会默认下载到c盘，因此需要手动安装至指定文件夹，当然，你c盘够大可以跳过这一步，ollama本体大概有4.5g，记得改模型下载地址就行。  
+目前最新版带有ui界面的ollama可以直接设置模型下载位置，启动ollama后在右下角任务栏中右键点击ollama图标，点击Settings...  
+<img width="997" height="783" alt="image" src="https://github.com/user-attachments/assets/dd093f06-ef74-4aeb-9113-66cf064b1eaa" />
+
+红色矩形标出的就是模型文件下载位置，点击Browse即可更改。  
 在ollama的安装程序OllamaSteup.exe所在文件夹右键，然后点击在终端中打开，输入ollamasetup.exe /DIR=文件夹路径，文件夹路径是指你要把ollama安装到的位置，大概格式是D:\文件夹1\文件夹2 这样。  
 <img width="865" height="437" alt="image" src="https://github.com/user-attachments/assets/785ebd5f-61a3-430e-a5c9-839a520082d3" />  
 
@@ -62,3 +66,7 @@ app安装后点击右上角设置，会弹出如下界面：
 然后就可以和AI聊天了。  
 聊天记录会保存在history文件夹中以年-月-日_时命名的json文件中，可以右键选择在记事本中编辑查看。
 # 公网版本出现未知bug正在修复中
+目前公网版本的exe文件不知道为什么无法正常运行，原因未知，正在修复中，Python源文件可以正常使用
+### 公网版本
+与本地版本部署方法几乎相同，下载并配置好ollama后，将解压得到的本地.exe和config放到一个文件夹中，公网.exe和server_config文件夹放到公网服务器上即可  
+需要注意的是要先在公网启动公网.exe后再启动本地.exe  
