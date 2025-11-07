@@ -69,8 +69,21 @@ app安装后点击右上角设置，会弹出如下界面：
 在授权Token那一行填入token.txt文件中输入的token即可。  
 然后就可以和AI聊天了。  
 聊天记录会保存在history文件夹中以年-月-日_时命名的json文件中，可以右键选择在记事本中编辑查看。
-# 公网版本出现未知bug正在修复中
-目前公网版本的exe文件不知道为什么无法正常运行，原因未知，正在修复中，Python源文件可以正常使用
 ### 公网版本
 与本地版本部署方法几乎相同，下载并配置好ollama后，将解压得到的本地.exe和config放到一个文件夹中，公网.exe和server_config文件夹放到公网服务器上即可  
 需要注意的是要先在公网启动公网.exe后再启动本地.exe  
+# 三、打包说明  
+如果你想自己修改下源文件然后再打包，我在这儿提供一下我的打包命令，使用的是pyinstaller，版本是6.16.0  
+本地版打包命令：
+```
+pyinstaller --onefile --add-data "config;config" --icon=1icon.ico server_本地.py
+```
+公网版本地端打包命令：
+```
+pyinstaller --onefile --add-data "config;config" --icon=1icon.ico server_公网.py
+```
+公网转发端打包命令：
+```
+pyinstaller --onefile --clean --hidden-import=engineio.async_drivers.eventlet --hidden-import=engineio.async_drivers.gevent --hidden-import=engineio.async_drivers.threading --additional-hooks-dir=./hooks --add-data "server_config;server_config" --icon=1icon.ico server_转发.py
+```
+为什么转发端那么长呢，因为转发端代码中用到了eventlet库，这个库是动态导入的，正常直接打包会缺少库，所有需要告诉打包程序，即使代码没用到这些库，但是也需要全部打包，hooks里有两个简单的钩子文件，会搜集eventlet库和dns库所有的子模块
