@@ -61,8 +61,8 @@ apk文件直接在手机上安装即可，可能会申请各种权限，除了�
 上述文件都配置好后，双击exe文件启动即可，正常启动如下图所示：  
 <img width="1458" height="597" alt="image" src="https://github.com/user-attachments/assets/d7fef872-1244-4096-a063-153a6c093b3a" />  
 
-倒数第二行的ip不同是正常的。  
-此时，在浏览器输入http://127.0.0.1:8080或按住ctrl键单击http://127.0.0.1:8080处都可以打开网页端。  
+倒数第二行的ip不同是正常的。    
+此时，在浏览器输入http://127.0.0.1:8080 或按住ctrl键单击 http://127.0.0.1:8080 处都可以打开网页端。  
 app安装后点击右上角设置，会弹出如下界面：  
 <img width="319" height="230" alt="image" src="https://github.com/user-attachments/assets/d8f6e5ce-062d-4e95-8cfb-42a5cc9c5626" />  
 
