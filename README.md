@@ -35,6 +35,7 @@ Ollama会默认下载到c盘，因此需要手动安装至指定文件夹，当�
 | 8G GPU   | 32B               |
 | 16G GPU  | 32B               |
 | 24G GPU  | 70B               |  
+
 选好模型后点击模型名称  
 <img width="865" height="394" alt="image" src="https://github.com/user-attachments/assets/ef15d177-5bb1-459f-8e2c-8b23b2862b63" />  
 
