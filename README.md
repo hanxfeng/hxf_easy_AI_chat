@@ -88,3 +88,20 @@ pyinstaller --onefile --add-data "config;config" --icon=1icon.ico server_公网.
 pyinstaller --onefile --clean --hidden-import=engineio.async_drivers.eventlet --hidden-import=engineio.async_drivers.gevent --hidden-import=engineio.async_drivers.threading --additional-hooks-dir=./hooks --add-data "server_config;server_config" --icon=1icon.ico server_转发.py
 ```
 为什么转发端那么长呢，因为转发端代码中用到了eventlet库，这个库是动态导入的，正常直接打包会缺少库，所有需要告诉打包程序，即使代码没用到这些库，但是也需要全部打包，hooks里有两个简单的钩子文件，会搜集eventlet库和dns库所有的子模块
+# 四、更新日志
+时间：  
+2025-11-05  
+版本号：  
+v1.11.2  
+更新内容：  
+解决了公网版本的bug，现在公网版本也可以使用app进行聊天了。  
+
+
+
+时间：  
+2025-11-19  
+版本号：  
+v1.11.3  
+更新内容：  
+为web端和app端增加了读取聊天记录功能，现在可以网页端打开时会自动加载聊天记录，app端在点击加载聊天记录后会加载之前的聊天记录。
+为web端的对话框增加了颜色，更方便区分了。
