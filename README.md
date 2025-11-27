@@ -4,8 +4,22 @@
 # <strong style="color: red;">使用公网版本时一定做好防护措施！！！</strong>
 目前仅支持Windows系统。  
 ## 闲聊部分
-这个项目最开始是想用RAG框架来解决ai上下文过长会丢失记忆的问题的，后来改来改去到了现在这样，没有了RAG检索，但是也变得足够简单，下载ollama，下载模型，进行初始配置（世界观，人设等），双击exe文件，就可以用了，支持web和app双端使用，记忆互通，不过目前记忆只是记录，还没做记忆检索功能，过段时间要准备考数据库工程师，暂时没那么多时间来更新了，索性先把目前这个版本发出来。因本人能力确实有限，所以使用ai辅助开发了网络通信、网页和app部分，所以web和app显得蛮简陋的。对了，提一句，app是用HBuilderX把html，css和js文件打包得到的，理论上android studio应该可以本地打包，不过我懒得下了。如果决定使用公网版本一定记得改一个复杂度高的token，我在之前测试的时候有一次弄完忘记关了，第二天一看好几百次访问记录。  
-# 二、部署说明
+这个项目最开始是想用RAG框架来解决ai上下文过长会丢失记忆的问题的，后来改来改去到了现在这样，没有了RAG检索，但是也变得足够简单，下载ollama，下载模型，进行初始配置（世界观，人设等），双击exe文件，就可以用了，支持web和app双端使用，记忆互通，不过目前记忆只是记录，还没做记忆检索功能，还没想到很好的解决方法。因本人能力确实有限，所以使用ai辅助开发了网页和app部分，Gemini就是前端的神！对了，提一句，app是web view应用，可以理解为是在app里有一个浏览器，然后再访问网页，展示的是网页的内容，不完全准确，不过可以帮助理解这个概念。如果决定使用公网版本一定记得改一个复杂度高的token，我在之前测试的时候有一次弄完忘记关了，第二天一看好几百次访问记录。至于为什么默认头像是个B+树，这是因为当时不知道拿什么当默认头像好，随手在MySQL的笔记里拉了张图出来，是的，就是这样。  
+# 二、项目展示与设置
+因为一直在进行测试，所以聊天内容看起来可能有些怪。  
+## web端聊天界面展示
+ <img width="1919" height="892" alt="image" src="https://github.com/user-attachments/assets/273fa298-db0b-4ad7-a431-b5b695a1bf41" />  
+
+点击右上角的齿轮可以更改头像，更改ai的名字，默认是AI。  
+<img width="1912" height="890" alt="image" src="https://github.com/user-attachments/assets/5e45c16c-1f1a-4ba4-be32-54bfc1b3f0b0" />
+
+# app端聊天界面展示  
+![8d6864d39b373a0b4f29c492c5064e50](https://github.com/user-attachments/assets/bc2935ce-a914-451f-806a-e3ed7c3434ec)  
+
+同样是点击右上角齿轮可进行设置，能修改的项比web端多，有左上角显示的名称，默认是玫兰莎，服务器ip，具体查看方式在下面使用说明中有提到，token，可以理解为是密码，默认是1234，可自行进行修改，然后两边的头像都是可以进行更换的，修改完成后保存即可，app端不能实现web端那样自动读取历史记录，需要手动进行读取，点击手动加载记录即可。  
+![f1a88b1529ea29ea48e3f396fd64d49f](https://github.com/user-attachments/assets/91d5ebf6-6f5e-458e-b381-4aefa39410f0)
+
+# 三、部署说明
 ## ollama下载
 首先在官网下载ollama安装程序，ollama官网：https://www.ollama.com   
 Ollama会默认下载到c盘，因此需要手动安装至指定文件夹，当然，你c盘够大可以跳过这一步，ollama本体大概有4.5g，记得改模型下载地址就行。  
@@ -73,7 +87,7 @@ app安装后点击右上角设置，会弹出如下界面：
 ### 公网版本
 与本地版本部署方法几乎相同，下载并配置好ollama后，将解压得到的本地.exe和config放到一个文件夹中，公网.exe和server_config文件夹放到公网服务器上即可  
 需要注意的是要先在公网启动公网.exe后再启动本地.exe  
-# 三、打包说明  
+# 四、打包说明  
 如果你想自己修改下源文件然后再打包，我在这儿提供一下我的打包命令，使用的是pyinstaller，版本是6.16.0  
 本地版打包命令：
 ```
@@ -88,7 +102,7 @@ pyinstaller --onefile --add-data "config;config" --icon=1icon.ico server_公网.
 pyinstaller --onefile --clean --hidden-import=engineio.async_drivers.eventlet --hidden-import=engineio.async_drivers.gevent --hidden-import=engineio.async_drivers.threading --additional-hooks-dir=./hooks --add-data "server_config;server_config" --icon=1icon.ico server_转发.py
 ```
 为什么转发端那么长呢，因为转发端代码中用到了eventlet库，这个库是动态导入的，正常直接打包会缺少库，所有需要告诉打包程序，即使代码没用到这些库，但是也需要全部打包，hooks里有两个简单的钩子文件，会搜集eventlet库和dns库所有的子模块
-# 四、更新日志
+# 五、更新日志
 时间：  
 2025-11-05  
 版本号：  
