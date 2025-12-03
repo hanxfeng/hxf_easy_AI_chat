@@ -101,7 +101,7 @@ pyinstaller --onefile --add-data "config;config" --icon=1icon.ico server_公网.
 ```
 pyinstaller --onefile --clean --hidden-import=engineio.async_drivers.eventlet --hidden-import=engineio.async_drivers.gevent --hidden-import=engineio.async_drivers.threading --additional-hooks-dir=./hooks --add-data "server_config;server_config" --icon=1icon.ico server_转发.py
 ```
-为什么转发端那么长呢，因为转发端代码中用到了eventlet库，这个库是动态导入的，正常直接打包会缺少库，所有需要告诉打包程序，即使代码没用到这些库，但是也需要全部打包，hooks里有两个简单的钩子文件，会搜集eventlet库和dns库所有的子模块
+为什么转发端那么长呢，因为转发端代码中用到了eventlet库，这个库是动态导入的，正常直接打包会缺少库，所有需要告诉打包程序，即使代码没用到这些库，但是也需要全部打包，hooks里有两个简单的钩子文件，会搜集eventlet库和dns库所有的子模块  
 # 五、更新日志
 时间：  
 2025-11-05  
@@ -125,6 +125,7 @@ v1.11.3
 现在AI会有5%的几率将一整段话原样发出而不是一句句发出。  
 优化了代码结构，将功能相近的代码进行了合并。现在app端不需要进行token验证了。  
 
-
+# 六、致谢
+感谢我的hxd —— Clay，没什么原因，纯粹写一句
 
 
